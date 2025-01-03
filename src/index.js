@@ -82,3 +82,38 @@ export function playCalcGame() {
         }
         }
     }
+
+
+    export function gcd() {
+        console.log('Find the greatest common divisor of given numbers.')
+        let check = 0;
+        while (loose < 3 || result < 3) {
+            let a = Math.floor(Math.random() * 100)
+            let b = Math.floor(Math.random() * 100)
+            const userAnswer = readlineSync.question('Question: ' + a + ' ' + b + '\nYour answer:');
+            a = Math.abs(a);
+            b = Math.abs(b);
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            check = a;
+            if (userAnswer == check) {
+                console.log('Correct!');
+                result += 1;
+            } else if (userAnswer != check) {
+                console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + check + "'");
+                loose += 1;
+    
+            }
+            if (result === 3) {
+                console.log('Congratulations, ' + userName + '!');
+                break;
+            } else if (loose === 3) {
+                console.log('Let\'s try again, ' + userName + '!');
+                break;
+            }
+    
+        }
+    }
