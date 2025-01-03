@@ -84,7 +84,7 @@ export function playCalcGame() {
     }
 
 
-    export function gcd() {
+    export function gcdGames() {
         console.log('Find the greatest common divisor of given numbers.')
         let check = 0;
         while (loose < 3 || result < 3) {
@@ -99,6 +99,35 @@ export function playCalcGame() {
                 a = temp;
             }
             check = a;
+            if (userAnswer == check) {
+                console.log('Correct!');
+                result += 1;
+            } else if (userAnswer != check) {
+                console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + check + "'");
+                loose += 1;
+    
+            }
+            if (result === 3) {
+                console.log('Congratulations, ' + userName + '!');
+                break;
+            } else if (loose === 3) {
+                console.log('Let\'s try again, ' + userName + '!');
+                break;
+            }
+    
+        }
+    }
+
+    export function progressionGames() {
+        console.log('What number is missing in the progression?')
+        while (loose < 3 || result < 3) {
+            let a = Math.floor(Math.random(1,10) * 80)
+            let b = Math.floor(Math.random(2, 10) * 9)
+            let rndm = Math.floor(Math.random(10) * 10)
+            let question = [a, (a + b), (a + b * 2), (a + b * 3), (a + b * 4), (a + b * 5), (a + b * 6), (a + b * 7), (a + b * 8), (a + b * 9), (a + b * 10)]
+            let check = question[rndm]
+            question.splice(rndm, 1, '..');
+            const userAnswer = readlineSync.question('Question: ' + question + '\nYour answer:');
             if (userAnswer == check) {
                 console.log('Correct!');
                 result += 1;
