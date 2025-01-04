@@ -48,12 +48,11 @@ export function playGame() {
 
 export function playCalcGame() {
     console.log('What is the result of the expression?')
-    while (loose < 3 || result < 3) {
-        let result = 0;
+    while (loose < 3 && result < 3) {
         let sumar = 0;
         let a = Math.floor(Math.random() * 100);
         let b = Math.floor(Math.random() * 100);
-        let oneTest = Math.floor(Math.random() * 4);
+        let oneTest = Math.floor(Math.random() * 3);
         if (oneTest === 1) {
             const userAnswer = readlineSync.question('Question: ' + a + ' + ' + b + '\nYour answer: ');
             if (userAnswer == a + b) {
@@ -84,16 +83,17 @@ export function playCalcGame() {
                 console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + sumar + "'.");
                 loose += 1;
             }
-            if (result === 3) {
-                console.log('Congratulations, ' + userName + '!');
-                break;
-            } else if (loose === 1) {
-                console.log('Let\'s try again, ' + userName + '!');
-                break;
-            }
     }
+        if (result === 3) {
+        console.log('Congratulations, ' + userName + '!');
+        break;
+        } else if (loose === 1) {
+        console.log('Let\'s try again, ' + userName + '!');
+        break;
+        }
 }
 }
+
 
 
 export function gcdGames() {
