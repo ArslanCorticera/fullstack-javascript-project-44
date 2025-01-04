@@ -146,3 +146,47 @@ export function playCalcGame() {
     
         }
     }
+
+
+    export function primeGame() {
+
+        const isPrime = (n) => {
+            if (n <= 1) return false;
+            if (n === 2) return true;
+            if (n % 2 === 0) return false;
+    
+            return ![...Array(Math.floor(Math.sqrt(n)) - 1)]
+                .map((_, i) => i + 3)
+                .filter(i => i % 2 !== 0)
+                .some(i => n % i === 0);
+        };
+    
+    
+        console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+    
+        while (loose < 3 || result < 3) {
+            let a = Math.floor(Math.random() * 100);
+    
+            const userAnswer = readlineSync.question('Question: ' + a + '\nYour answer: ');
+            let res = isPrime(a);
+            if (res == true) {
+                res = 'yes';
+            } else {
+                res = 'no'
+            }
+            if (userAnswer === res) {
+                console.log("Correct!");
+                result += 1;
+            } else {
+                console.log('Uncorrect!');
+                loose += 1;
+            }if (result === 3) {
+                console.log('Congratulations, ' + userName + '!');
+                break;
+            } else if (loose === 3) {
+                console.log('Let\'s try again, ' + userName + '!');
+                break;
+            }
+    
+        }
+    }
