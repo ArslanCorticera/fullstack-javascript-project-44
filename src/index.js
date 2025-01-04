@@ -84,15 +84,15 @@ export function playCalcGame() {
                 console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + sumar + "'.");
                 loose += 1;
             }
-        }
-        if (loose === 1) {
-            console.log('Let\'s try again, ' + userName + '!')
-            break;
-        } else if (result === 3) {
-            console.log('Congratulations, ' + userName + '!');
-            break;
-        }
+            if (result === 3) {
+                console.log('Congratulations, ' + userName + '!');
+                break;
+            } else if (loose === 1) {
+                console.log('Let\'s try again, ' + userName + '!');
+                break;
+            }
     }
+}
 }
 
 
