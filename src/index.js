@@ -50,6 +50,7 @@ export function playCalcGame() {
     console.log('What is the result of the expression?')
     while (loose < 3 || result < 3) {
         let result = 0;
+        let sumar = 0;
         let a = Math.floor(Math.random() * 100);
         let b = Math.floor(Math.random() * 100);
         let oneTest = Math.floor(Math.random() * 4);
@@ -59,7 +60,8 @@ export function playCalcGame() {
                 console.log("Correct!")
                 result += 1;
             } else {
-                console.log("Incorrect!")
+                sumar = a+b;
+                console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + sumar + "'.");
                 loose += 1;
             }
         } else if (oneTest === 2) {
@@ -68,7 +70,8 @@ export function playCalcGame() {
                 console.log("Correct!");
                 result += 1;
             } else {
-                console.log("Incorrect!");
+                sumar = a - b;
+                console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + sumar + "'.");
                 loose += 1;
             }
         } else if (oneTest === 3) {
@@ -77,7 +80,8 @@ export function playCalcGame() {
                 console.log("Correct!");
                 result += 1;
             } else {
-                console.log("Incorrect!");
+                sumar = a * b;
+                console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + sumar + "'.");
                 loose += 1;
             }
         }
