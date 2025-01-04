@@ -9,7 +9,7 @@ var loose = 0;
 export function playGame (){
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
     const ranInt = function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+        return Math.floor(Math.random(1,10) * max);
       }
     while (loose < 3 || result < 3) {
         let write = ranInt(100);
