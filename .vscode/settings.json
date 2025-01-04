@@ -1,3 +1,4 @@
 {
-  "makefile.configureOnOpen": false
+  "makefile.configureOnOpen": false,
+  "vs-code-prettier-eslint.prettierLast": true
 }

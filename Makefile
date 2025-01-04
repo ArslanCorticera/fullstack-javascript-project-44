@@ -21,3 +21,6 @@ publish:
 
 lint:
 			npx eslint .
+
+airbnb:
+			npx eslint . --fix
