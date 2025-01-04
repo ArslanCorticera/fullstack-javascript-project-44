@@ -47,7 +47,7 @@ export function playGame() {
 
 
 export function playCalcGame() {
-
+    console.log('What is the result of the expression?')
     while (loose < 3 || result < 3) {
         let result = 0;
         let a = Math.floor(Math.random() * 100);
