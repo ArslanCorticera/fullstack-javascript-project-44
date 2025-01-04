@@ -1,185 +1,275 @@
-import readlineSync from 'readline-sync';
+import readlineSync from "readline-sync";
 
-console.log('Welcome to the Brain Games!');
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${userName}!`);
+console.log("Welcome to the Brain Games!");
+var userName = readlineSync.question("May I have your name? ");
+console.log("Hello, " + userName + "!");
+var result = 0;
+var loose = 0;
 
-let score = 0;
-let mistakes = 0;
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-function playGame() {
+export function playGame() {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  while (mistakes < 3 && score < 3) {
-    const randomNum = getRandomInt(100);
-    const userAnswer = readlineSync.question(`Question: ${randomNum}\nYour answer: `);
-    const correctAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
+  const ranInt = function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  };
+  while (loose < 3 && result < 3) {
+    let write = ranInt(100);
+    const userAnswer = readlineSync.question(
+      "Question: " + write + "\nYour answer: ",
+    );
+    let checkss = "";
 
-    if (userAnswer === correctAnswer) {
-      console.log('Correct!');
-      score += 1;
+    if (write % 2 == 0) {
+      checkss = "yes.";
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      mistakes += 1;
+      checkss = "no.";
     }
 
-    if (score === 3) {
-      console.log(`Congratulations, ${userName}!`);
+    if (userAnswer === "yes" && write % 2 === 0) {
+      console.log("Correct!");
+      result += 1;
+    } else if (userAnswer === "no" && write % 2 !== 0) {
+      console.log("Correct!");
+      result += 1;
+    } else {
+      console.log(
+        "'" +
+          userAnswer +
+          "' " +
+          "is wrong answer;(. Correct answer was" +
+          " '" +
+          checkss +
+          "'",
+      );
+      loose += 1;
+    }
+    if (result === 3) {
+      console.log("Congratulations, " + userName + "!");
       break;
-    } else if (mistakes === 3) {
-      console.log(`Let's try again, ${userName}!`);
+    } else if (loose === 1) {
+      console.log("Let's try again, " + userName + "!");
       break;
     }
   }
 }
 
-function playCalcGame() {
-  console.log('What is the result of the expression?');
-  while (mistakes < 3 && score < 3) {
-    const num1 = getRandomInt(100);
-    const num2 = getRandomInt(100);
-    const operationIndex = getRandomInt(3);
-    let question = '';
-    let correctAnswer = 0;
-
-    switch (operationIndex) {
-      case 0:
-        question = `${num1} + ${num2}`;
-        correctAnswer = num1 + num2;
-        break;
-      case 1:
-        question = `${num1} - ${num2}`;
-        correctAnswer = num1 - num2;
-        break;
-      case 2:
-        question = `${num1} * ${num2}`;
-        correctAnswer = num1 * num2;
-        break;
-      default:
-        break;
+export function playCalcGame() {
+  console.log("What is the result of the expression?");
+  while (loose < 3 && result < 3) {
+    let sumar = 0;
+    let a = Math.floor(Math.random() * 100);
+    let b = Math.floor(Math.random() * 100);
+    let oneTest = Math.floor(Math.random() * 3);
+    if (oneTest === 1) {
+      const userAnswer = readlineSync.question(
+        "Question: " + a + " + " + b + "\nYour answer: ",
+      );
+      if (userAnswer == a + b) {
+        console.log("Correct!");
+        result += 1;
+      } else {
+        sumar = a + b;
+        console.log(
+          "'" +
+            userAnswer +
+            "' " +
+            "is wrong answer;(. Correct answer was" +
+            " '" +
+            sumar +
+            "'.",
+        );
+        loose += 1;
+      }
+    } else if (oneTest === 2) {
+      const userAnswer = readlineSync.question(
+        "Question: " + a + " - " + b + "\nYour answer: ",
+      );
+      if (userAnswer == a - b) {
+        console.log("Correct!");
+        result += 1;
+      } else {
+        sumar = a - b;
+        console.log(
+          "'" +
+            userAnswer +
+            "' " +
+            "is wrong answer;(. Correct answer was" +
+            " '" +
+            sumar +
+            "'.",
+        );
+        loose += 1;
+      }
+    } else if (oneTest === 3) {
+      const userAnswer = readlineSync.question(
+        "Question: " + a + " * " + b + "\nYour answer: ",
+      );
+      if (userAnswer == a * b) {
+        console.log("Correct!");
+        result += 1;
+      } else {
+        sumar = a * b;
+        console.log(
+          "'" +
+            userAnswer +
+            "' " +
+            "is wrong answer;(. Correct answer was" +
+            " '" +
+            sumar +
+            "'.",
+        );
+        loose += 1;
+      }
     }
-
-    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
-
-    if (parseInt(userAnswer, 10) === correctAnswer) {
-      console.log('Correct!');
-      score += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      mistakes += 1;
-    }
-
-    if (score === 3) {
-      console.log(`Congratulations, ${userName}!`);
+    if (result === 3) {
+      console.log("Congratulations, " + userName + "!");
       break;
-    } else if (mistakes === 3) {
-      console.log(`Let's try again, ${userName}!`);
+    } else if (loose === 1) {
+      console.log("Let's try again, " + userName + "!");
       break;
     }
   }
 }
 
-function gcdGames() {
-  console.log('Find the greatest common divisor of given numbers.');
-
-  function gcd(a, b) {
+export function gcdGames() {
+  console.log("Find the greatest common divisor of given numbers.");
+  let check = 0;
+  while (loose < 3 || result < 3) {
+    let a = Math.floor(Math.random() * 100);
+    let b = Math.floor(Math.random() * 100);
+    const userAnswer = readlineSync.question(
+      "Question: " + a + " " + b + "\nYour answer:",
+    );
+    a = Math.abs(a);
+    b = Math.abs(b);
     while (b !== 0) {
-      [a, b] = [b, a % b];
+      let temp = b;
+      b = a % b;
+      a = temp;
     }
-    return a;
-  }
-
-  while (mistakes < 3 && score < 3) {
-    const num1 = getRandomInt(100);
-    const num2 = getRandomInt(100);
-    const correctAnswer = gcd(num1, num2);
-    const userAnswer = readlineSync.question(`Question: ${num1} ${num2}\nYour answer: `);
-
-    if (parseInt(userAnswer, 10) === correctAnswer) {
-      console.log('Correct!');
-      score += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      mistakes += 1;
+    check = a;
+    if (userAnswer == check) {
+      console.log("Correct!");
+      result += 1;
+    } else if (userAnswer != check) {
+      console.log(
+        "'" +
+          userAnswer +
+          "' " +
+          "is wrong answer;(. Correct answer was" +
+          " '" +
+          check +
+          "'",
+      );
+      loose += 1;
     }
-
-    if (score === 3) {
-      console.log(`Congratulations, ${userName}!`);
+    if (result === 3) {
+      console.log("Congratulations, " + userName + "!");
       break;
-    } else if (mistakes === 3) {
-      console.log(`Let's try again, ${userName}!`);
-      break;
-    }
-  }
-}
-
-function progressionGames() {
-  console.log('What number is missing in the progression?');
-  while (mistakes < 3 && score < 3) {
-    const start = getRandomInt(10) * 8;
-    const step = getRandomInt(10) + 1;
-    const hiddenIndex = getRandomInt(10);
-
-    const progression = Array.from({ length: 10 }, (_, i) => start + i * step);
-    const correctAnswer = progression[hiddenIndex];
-    progression[hiddenIndex] = '..';
-    const question = progression.join(' ');
-
-    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
-
-    if (parseInt(userAnswer, 10) === correctAnswer) {
-      console.log('Correct!');
-      score += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      mistakes += 1;
-    }
-
-    if (score === 3) {
-      console.log(`Congratulations, ${userName}!`);
-      break;
-    } else if (mistakes === 3) {
-      console.log(`Let's try again, ${userName}!`);
+    } else if (loose === 1) {
+      console.log("Let's try again, " + userName + "!");
       break;
     }
   }
 }
 
-function primeGame() {
-  const isPrime = (num) => {
-    if (num <= 1) return false;
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false;
+export function progressionGames() {
+  console.log("What number is missing in the progression?");
+  while (loose < 3 || result < 3) {
+    let a = Math.floor(Math.random(1, 10) * 80);
+    let b = Math.floor(Math.random(2, 10) * 9);
+    let rndm = Math.floor(Math.random(10) * 10);
+    let question = [
+      a,
+      a + b,
+      a + b * 2,
+      a + b * 3,
+      a + b * 4,
+      a + b * 5,
+      a + b * 6,
+      a + b * 7,
+      a + b * 8,
+      a + b * 9,
+      a + b * 10,
+    ];
+    let check = question[rndm];
+    question.splice(rndm, 1, "..");
+    let separator = question.join(" ");
+    const userAnswer = readlineSync.question(
+      "Question: " + separator + "\nYour answer:",
+    );
+    if (userAnswer == check) {
+      console.log("Correct!");
+      result += 1;
+    } else if (userAnswer != check) {
+      console.log(
+        "'" +
+          userAnswer +
+          "' " +
+          "is wrong answer;(. Correct answer was" +
+          " '" +
+          check +
+          "'",
+      );
+      loose += 1;
     }
-    return true;
+    if (result === 3) {
+      console.log("Congratulations, " + userName + "!");
+      break;
+    } else if (loose === 1) {
+      console.log("Let's try again, " + userName + "!");
+      break;
+    }
+  }
+}
+
+export function primeGame() {
+  const isPrime = (n) => {
+    if (n <= 1) return false;
+    if (n === 2) return true;
+    if (n % 2 === 0) return false;
+
+    return ![...Array(Math.floor(Math.sqrt(n)) - 1)]
+      .map((_, i) => i + 3)
+      .filter((i) => i % 2 !== 0)
+      .some((i) => n % i === 0);
   };
 
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-  while (mistakes < 3 && score < 3) {
-    const randomNum = getRandomInt(100);
-    const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
-    const userAnswer = readlineSync.question(`Question: ${randomNum}\nYour answer: `);
+  while (loose < 3 || result < 3) {
+    let a = Math.floor(Math.random() * 100);
 
-    if (userAnswer === correctAnswer) {
-      console.log('Correct!');
-      score += 1;
+    const userAnswer = readlineSync.question(
+      "Question: " + a + "\nYour answer: ",
+    );
+    let res = isPrime(a);
+    if (res == true) {
+      res = "yes";
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      mistakes += 1;
+      res = "no";
     }
-
-    if (score === 3) {
-      console.log(`Congratulations, ${userName}!`);
+    if (userAnswer === res) {
+      console.log("Correct!");
+      result += 1;
+    } else {
+      console.log(
+        "'" +
+          userAnswer +
+          "' " +
+          "is wrong answer;(. Correct answer was" +
+          " '" +
+          res +
+          "'.",
+      );
+      loose += 1;
+      //tes
+    }
+    if (result === 3) {
+      console.log("Congratulations, " + userName + "!");
       break;
-    } else if (mistakes === 3) {
-      console.log(`Let's try again, ${userName}!`);
+    } else if (loose === 1) {
+      console.log("Let's try again, " + userName + "!");
       break;
     }
   }
 }
-
-export { playGame, playCalcGame, gcdGames, progressionGames, primeGame };
