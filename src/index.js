@@ -183,15 +183,15 @@ export function primeGame() {
         const userAnswer = readlineSync.question('Question: ' + a + '\nYour answer: ');
         let res = isPrime(a);
         if (res == true) {
-            res = 'yes.';
+            res = 'yes';
         } else {
-            res = 'no.'
+            res = 'no'
         }
         if (userAnswer === res) {
             console.log("Correct!");
             result += 1;
         } else {
-            console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + res + "'");
+            console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + res + "'.");
             loose += 1;
         }
         if (result === 3) {
