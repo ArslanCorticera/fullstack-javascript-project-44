@@ -1,7 +1,6 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "type": "module",
   "bin": {
     "brain-prime": "bin/brain-prime.js",
     "brain-progression": "bin/brain-progression.js",
@@ -24,6 +23,7 @@
   "bugs": {
     "url": "https://github.com/ArslanCorticera/fullstack-javascript-project-44/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/ArslanCorticera/fullstack-javascript-project-44#readme",
   "dependencies": {
     "readline-sync": "^1.4.10"

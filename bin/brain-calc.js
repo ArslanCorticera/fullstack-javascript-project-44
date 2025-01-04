@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { playCalcGame } from "/Users/arslan/Desktop/fullstack-javascript-project-44/src/index.js";
+import { playCalcGame } from '../src/index.js';
 
 playCalcGame();
