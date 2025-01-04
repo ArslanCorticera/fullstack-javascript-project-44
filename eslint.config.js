@@ -1,5 +1,6 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
+import { rules } from "eslint-config-prettier";
 
 
 /** @type {import('eslint').Linter.Config[]} */
