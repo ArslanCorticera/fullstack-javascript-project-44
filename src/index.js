@@ -193,6 +193,7 @@ export function primeGame() {
         } else {
             console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + res + "'.");
             loose += 1;
+            //tes
         }
         if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
