@@ -88,7 +88,7 @@ export function playCalcGame() {
         if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!')
             break;
-        } else if (result > 2) {
+        } else if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
             break;
         }
