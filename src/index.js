@@ -14,6 +14,14 @@ export function playGame() {
     while (loose < 3 && result < 3) {
         let write = ranInt(100);
         const userAnswer = readlineSync.question('Question: ' + write + '\nYour answer: ');
+        let checkss = '';
+
+        if (write % 2 == 0 ){
+            checkss = 'yes.'
+        }else{
+            checkss = 'no.'
+        }
+
 
         if (userAnswer === 'yes' && write % 2 === 0) {
             console.log('Correct!');
@@ -22,13 +30,13 @@ export function playGame() {
             console.log('Correct!');
             result += 1;
         } else {
-            console.log('Incorrect!');
+            console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + checkss + "'");
             loose += 1;
         }
         if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
             break;
-        } else if (loose === 3) {
+        } else if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!');
             break;
         }
@@ -73,7 +81,7 @@ export function playCalcGame() {
                 loose += 1;
             }
         }
-        if (loose > 2) {
+        if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!')
             break;
         } else if (result > 2) {
@@ -110,7 +118,7 @@ export function gcdGames() {
         if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
             break;
-        } else if (loose === 3) {
+        } else if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!');
             break;
         }
@@ -139,7 +147,7 @@ export function progressionGames() {
         if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
             break;
-        } else if (loose === 3) {
+        } else if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!');
             break;
         }
@@ -170,21 +178,21 @@ export function primeGame() {
         const userAnswer = readlineSync.question('Question: ' + a + '\nYour answer: ');
         let res = isPrime(a);
         if (res == true) {
-            res = 'yes';
+            res = 'yes.';
         } else {
-            res = 'no'
+            res = 'no.'
         }
         if (userAnswer === res) {
             console.log("Correct!");
             result += 1;
         } else {
-            console.log('Uncorrect!');
+            console.log("'" + userAnswer + "' " + 'is wrong answer;(. Correct answer was' + " '" + res + "'");
             loose += 1;
         }
         if (result === 3) {
             console.log('Congratulations, ' + userName + '!');
             break;
-        } else if (loose === 3) {
+        } else if (loose === 1) {
             console.log('Let\'s try again, ' + userName + '!');
             break;
         }
