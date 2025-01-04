@@ -1,6 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "type": "module",
   "bin": {
     "brain-prime": "bin/brain-prime.js",
     "brain-progression": "bin/brain-progression.js",
@@ -9,7 +10,6 @@
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js"
   },
-  "type": "module",
   "description": "[![Actions Status](https://github.com/ArslanCorticera/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ArslanCorticera/fullstack-javascript-project-44/actions)",
   "main": "index.js",
   "scripts": {
