@@ -139,7 +139,8 @@ export function progressionGames() {
         let question = [a, (a + b), (a + b * 2), (a + b * 3), (a + b * 4), (a + b * 5), (a + b * 6), (a + b * 7), (a + b * 8), (a + b * 9), (a + b * 10)]
         let check = question[rndm]
         question.splice(rndm, 1, '..');
-        const userAnswer = readlineSync.question('Question: ' + question + '\nYour answer:');
+        let separator = question.join(' ');
+        const userAnswer = readlineSync.question('Question: ' + separator + '\nYour answer:');
         if (userAnswer == check) {
             console.log('Correct!');
             result += 1;
