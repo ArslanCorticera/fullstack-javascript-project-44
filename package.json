@@ -12,7 +12,10 @@
   "description": "[![Actions Status](https://github.com/ArslanCorticera/fullstack-javascript-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ArslanCorticera/fullstack-javascript-project-44/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+  "lint:fix": "eslint . --fix",
+  "format": "prettier --write \"src/**/*.{js,jsx}\",",
+  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -40,7 +44,7 @@
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.14.0",
-    "prettier": "3.4.2",
+    "prettier": "^3.4.2",
     "typescript-eslint": "^8.19.0"
   }
 }
