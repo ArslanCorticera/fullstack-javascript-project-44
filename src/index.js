@@ -53,7 +53,7 @@ export function playCalcGame() {
       const userAnswer = readlineSync.question(
         'Question: ' + a + ' + ' + b + '\nYour answer: ',
       );
-      if (userAnswer === a + b) {
+      if (userAnswer == a + b) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -65,7 +65,7 @@ export function playCalcGame() {
       const userAnswer = readlineSync.question(
         'Question: ' + a + ' - ' + b + '\nYour answer: ',
       );
-      if (userAnswer === a - b) {
+      if (userAnswer == a - b) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -77,7 +77,7 @@ export function playCalcGame() {
       const userAnswer = readlineSync.question(
         'Question: ' + a + ' * ' + b + '\nYour answer: ',
       );
-      if (userAnswer === a * b) {
+      if (userAnswer == a * b) {
         console.log('Correct!');
         result += 1;
       } else {
