@@ -50,7 +50,7 @@ export function playCalcGame() {
     const b = Math.floor(Math.random() * 100);
     const oneTest = Math.floor(Math.random() * 3);
     if (oneTest === 1) {
-      const userAnswer = readlineSync.question(`Question: ${a} + ${b}\\nYour answer: `);
+      const userAnswer = readlineSync.question(`Question: ${a} + ${b}\nYour answer: `);
       const r1 = a + b;
       if (userAnswer === r1.toString()) {
         console.log('Correct!');
@@ -61,7 +61,7 @@ export function playCalcGame() {
         loose += 1;
       }
     } else if (oneTest === 2) {
-      const userAnswer = readlineSync.question(`Question: ${a} - ${b}\\nYour answer: `);
+      const userAnswer = readlineSync.question(`Question: ${a} - ${b}\nYour answer: `);
       const r2 = a - b;
       if (userAnswer === r2.toString()) {
         console.log('Correct!');
@@ -72,9 +72,9 @@ export function playCalcGame() {
         loose += 1;
       }
     } else if (oneTest === 3) {
-      const userAnswer = readlineSync.question(`Question: ${a} * ${b}\\nYour answer: `);
+      const userAnswer = readlineSync.question(`Question: ${a} * ${b}\nYour answer: `);
       const r3 = a * b;
-      if (userAnswer == r3.toString()) {
+      if (userAnswer === r3.toString()) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -99,7 +99,7 @@ export function gcdGames() {
   while (loose < 3 || result < 3) {
     let a = Math.floor(Math.random() * 100);
     let b = Math.floor(Math.random() * 100);
-    const userAnswer = readlineSync.question(`Question: ${a} ${b}\\nYour answer: `);
+    const userAnswer = readlineSync.question(`Question: ${a} ${b}\nYour answer: `);
     a = Math.abs(a);
     b = Math.abs(b);
     while (b !== 0) {
@@ -108,10 +108,10 @@ export function gcdGames() {
       a = temp;
     }
     check = a;
-    if (userAnswer == check) {
+    if (userAnswer === check.toString()) {
       console.log('Correct!');
       result += 1;
-    } else if (userAnswer != check) {
+    } else if (userAnswer !== check.toString()) {
       console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}'.`);
       loose += 1;
     }
@@ -148,10 +148,10 @@ export function progressionGames() {
     question.splice(rndm, 1, '..');
     const separator = question.join(' ');
     const userAnswer = readlineSync.question(`Question: ${separator}\\nYour answer: `);
-    if (userAnswer == check) {
+    if (userAnswer === check.toString()) {
       console.log('Correct!');
       result += 1;
-    } else if (userAnswer != check) {
+    } else if (userAnswer !== check.toString()) {
       console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}' `);
       loose += 1;
     }
