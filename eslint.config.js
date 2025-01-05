@@ -1,6 +1,4 @@
 import globals from 'globals';
-import pluginJs from '@eslint/j';
-
 
 /** @type { import('eslint').Linter.Config[] } */
 export default [
