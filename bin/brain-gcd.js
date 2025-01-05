@@ -3,4 +3,3 @@
 import { gcdGames } from '../src/index.js';
 
 gcdGames();
-
