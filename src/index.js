@@ -186,7 +186,7 @@ export function primeGame() {
       .some((i) => n % i === 0);
   };
 
-  console.log('Answer \'yes\' if given number is prime. Otherwise answer \'no\'.');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   while (loose < 3 || result < 3) {
     let a = Math.floor(Math.random() * 100);
