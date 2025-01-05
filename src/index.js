@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 console.log('Welcome to the Brain Games!');
-let userName = readlineSync.question('May I have your name? ');
+const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}!`);
 let result = 0;
 let loose = 0;
@@ -50,10 +50,9 @@ export function playCalcGame() {
     const b = Math.floor(Math.random() * 100);
     const oneTest = Math.floor(Math.random() * 3);
     if (oneTest === 1) {
-      const userAnswer = readlineSync.question(
-        'Question: ' + a + ' + ' + b + '\nYour answer: ',
-      );
-      if (userAnswer == a + b) {
+      const userAnswer = readlineSync.question(`Question: ${a} + ${b}\\nYour answer: `);
+      const r1 = a + b;
+      if (userAnswer === r1.toString()) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -62,10 +61,9 @@ export function playCalcGame() {
         loose += 1;
       }
     } else if (oneTest === 2) {
-      const userAnswer = readlineSync.question(
-        'Question: ' + a + ' - ' + b + '\nYour answer: ',
-      );
-      if (userAnswer == a - b) {
+      const userAnswer = readlineSync.question(`Question: ${a} - ${b}\\nYour answer: `);
+      const r2 = a - b;
+      if (userAnswer === r2.toString()) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -74,10 +72,9 @@ export function playCalcGame() {
         loose += 1;
       }
     } else if (oneTest === 3) {
-      const userAnswer = readlineSync.question(
-        'Question: ' + a + ' * ' + b + '\nYour answer: ',
-      );
-      if (userAnswer == a * b) {
+      const userAnswer = readlineSync.question(`Question: ${a} * ${b}\\nYour answer: `);
+      const r3 = a * b;
+      if (userAnswer == r3.toString()) {
         console.log('Correct!');
         result += 1;
       } else {
@@ -102,9 +99,7 @@ export function gcdGames() {
   while (loose < 3 || result < 3) {
     let a = Math.floor(Math.random() * 100);
     let b = Math.floor(Math.random() * 100);
-    const userAnswer = readlineSync.question(
-      'Question: ' + a + ' ' + b + '\nYour answer: ',
-    );
+    const userAnswer = readlineSync.question(`Question: ${a} ${b}\\nYour answer: `);
     a = Math.abs(a);
     b = Math.abs(b);
     while (b !== 0) {
@@ -152,9 +147,7 @@ export function progressionGames() {
     const check = question[rndm];
     question.splice(rndm, 1, '..');
     const separator = question.join(' ');
-    const userAnswer = readlineSync.question(
-      'Question: ' + separator + '\nYour answer: ',
-    );
+    const userAnswer = readlineSync.question(`Question: ${separator}\\nYour answer: `);
     if (userAnswer == check) {
       console.log('Correct!');
       result += 1;
@@ -189,9 +182,7 @@ export function primeGame() {
   while (loose < 3 || result < 3) {
     const a = Math.floor(Math.random() * 100);
 
-    const userAnswer = readlineSync.question(
-      'Question: ' + a + '\nYour answer: ',
-    );
+    const userAnswer = readlineSync.question(`Question: ${a}\\nYour answer: `);
     let res = isPrime(a);
     if (res === true) {
       res = 'yes';
@@ -204,7 +195,6 @@ export function primeGame() {
     } else {
       console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${res}'.`);
       loose += 1;
-      //tes
     }
     if (result === 3) {
       console.log(`Congratulations, ${userName}!`);
