@@ -103,7 +103,7 @@ export function gcdGames() {
     let a = Math.floor(Math.random() * 100);
     let b = Math.floor(Math.random() * 100);
     const userAnswer = readlineSync.question(
-      'Question: ' + a + ' ' + b + '\nYour answer:',
+      'Question: ' + a + ' ' + b + '\nYour answer: ',
     );
     a = Math.abs(a);
     b = Math.abs(b);
@@ -113,11 +113,11 @@ export function gcdGames() {
       a = temp;
     }
     check = a;
-    if (userAnswer === check) {
+    if (userAnswer == check) {
       console.log('Correct!');
       result += 1;
     } else if (userAnswer != check) {
-      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}'`);
+      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}'.`);
       loose += 1;
     }
     if (result === 3) {
