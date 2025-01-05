@@ -7,7 +7,7 @@ var result = 0;
 var loose = 0;
 
 export function playGame() {
-  console.log('Answer \'yes\' if the number is even, otherwise answer \'no\'.');
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const ranInt = function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   };
