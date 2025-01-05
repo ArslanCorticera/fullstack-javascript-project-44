@@ -19,9 +19,9 @@ export function playGame() {
     let checkss = '';
 
     if (write % 2 == 0) {
-      checkss = 'yes.';
+      checkss = 'yes';
     } else {
-      checkss = 'no.';
+      checkss = 'no';
     }
 
     if (userAnswer === 'yes' && write % 2 === 0) {
@@ -31,7 +31,7 @@ export function playGame() {
       console.log('Correct!');
       result += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${checkss}'`);
+      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${checkss}'.`);
       loose += 1;
     }
     if (result === 3) {
