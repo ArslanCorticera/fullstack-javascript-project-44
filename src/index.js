@@ -153,13 +153,13 @@ export function progressionGames() {
     question.splice(rndm, 1, '..');
     const separator = question.join(' ');
     const userAnswer = readlineSync.question(
-      'Question: ' + separator + '\nYour answer:',
+      'Question: ' + separator + '\nYour answer: ',
     );
-    if (userAnswer === check) {
+    if (userAnswer == check) {
       console.log('Correct!');
       result += 1;
     } else if (userAnswer != check) {
-      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}'`);
+      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}' `);
       loose += 1;
     }
     if (result === 3) {
