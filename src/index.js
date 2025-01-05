@@ -204,7 +204,7 @@ export function primeGame() {
       console.log('Correct!');
       result += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${check}'`);
+      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${res}'.`);
       loose += 1;
       //tes
     }
